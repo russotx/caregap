@@ -18,14 +18,15 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "socket.io": "^2.0.2"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "babel-node server.js", 
+    "server": "babel-node server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

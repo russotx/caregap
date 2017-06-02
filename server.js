@@ -10,14 +10,23 @@ const configDB = require('./config/database.js')
 
 const app = express()
 
-const localMongo = 'mongodb://localhost/caregap'
-const mongoURI = 'mongodb://'
+const PeerServer = require('peer').PeerServer
+const io = require('socket.io').listen(expressServer)
+const events = require('./src/events.js')
 
 const localPORT = 3001
 
 app.set('port', (process.env.PORT || localPORT))
 
+
+const localMongo = 'mongodb://localhost/caregap'
+const mongoURI = 'mongodb://'
 mongoose.connect(localMongo)
+const db = mongoose.connection
+db.on('error', console.error.bind(console,'# Mongo DB: connection error:'))
+db.once('open', function(callback) {
+  console.log("# Mongo DB: Connected to server");
+})
 
 const userSchema = new schema({
   user : { 
