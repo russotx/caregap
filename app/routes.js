@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = function(app,passport) {
 
-  app.get('/', (req,res) => { 
-    res.sendFile(path.join(__dirname,'../Build','index.html');
+  app.get('/', (req,res) => {   
+    res.sendFile(path.join(__dirname,'../Build','index.html'))
   })
 
   app.get('/login', (req,res) => {
